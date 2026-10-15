@@ -1,0 +1,80 @@
+name: Actualizar Surf Radar
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Cada 6 horas UTC (con posible retraso por la cola de GitHub Actions).
+    - cron: '17 0,6,12,18 * * *'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: surf-radar-pages
+  cancel-in-progress: false
+
+jobs:
+  update-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      WINDY_API_KEY: ${{ secrets.WINDY_API_KEY }}
+      WINDY_PRODUCTION: ${{ vars.WINDY_PRODUCTION }}
+      OPEN_METEO_API_KEY: ${{ secrets.OPEN_METEO_API_KEY }}
+      SITE_URL: ${{ vars.SITE_URL }}
+      ALERT_THRESHOLD: ${{ vars.ALERT_THRESHOLD || '76' }}
+
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Ejecutar tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Recalcular modelo y enviar alertas
+        run: python scripts/update.py
+
+      - name: Guardar ultimo pronostico y control anti-duplicados
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/latest.json state/alerts.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: previsiones cada 6 horas"
+            git push
+          fi
+
+      - name: Preparar archivos publicos sin secretos ni historial de alertas
+        shell: bash
+        run: |
+          mkdir -p _site/assets _site/data
+          cp index.html styles.css app.js sw.js manifest.webmanifest _site/
+          cp assets/icon* _site/assets/
+          cp data/latest.json data/spot_profiles.json _site/data/
+
+      - name: Habilitar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir web estatica
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Publicar GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
