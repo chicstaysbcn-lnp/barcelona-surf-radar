@@ -1,0 +1,85 @@
+{
+  "version": "1.1.0",
+  "revised_at": "2026-10-14",
+  "scope": "Siete playas de Barcelona, de Sant Sebastià a Mar Bella. Nova Mar Bella no está incluida.",
+  "disclaimer": "Los azimuts puntuales son centros de sectores orientativos, no mediciones de la rompiente. Una guía publicada no sustituye verificar cada banco de arena y cada temporal.",
+  "spots": [
+    {
+      "id": "sant-sebastia", "name": "Sant Sebastià", "lat": 41.3743, "lon": 2.1893,
+      "ideal_swell_deg": 90, "swell_tolerance_deg": 105, "ideal_offshore_deg": 270, "exposure_factor": 1.0,
+      "swell_label": "E (este; sector orientativo ENE–ESE)", "wind_label": "W (oeste), de flojo a moderado", "tide_label": "Bajamar preferente, según la guía; efecto no calibrado",
+      "classification": "documentado", "confidence_note": "Óptimos de swell, viento y marea publicados; sin validación instrumental del pico.",
+      "type": "Beach break expuesto, condicionado por el dique del puerto y los bancos de arena.", "season": "Otoño-invierno",
+      "best": ["Swell de componente E con período suficiente", "Viento de W ligero o mar glassy", "Probar la bajamar; la guía la señala como más favorable"],
+      "worst": ["Mar plano o período muy corto", "Viento fuerte de componente E que desordene la cara", "Swell que llegue muy fuera del sector E o corrientes intensas"],
+      "hazards": "Se han descrito corrientes de resaca fuertes; precaución junto a espigones y con temporal.",
+      "sources": ["https://www.surf-forecast.com/breaks/Playade-Sant-Sebastia", "https://guiasurfespana.es/surf-cataluna/barcelona/"]
+    },
+    {
+      "id": "sant-miquel", "name": "Sant Miquel", "lat": 41.3765, "lon": 2.1924,
+      "ideal_swell_deg": 100, "swell_tolerance_deg": 125, "ideal_offshore_deg": 285, "exposure_factor": 1.0,
+      "swell_label": "E–ESE (hipótesis por proximidad)", "wind_label": "W–WNW ligero (hipótesis)", "tide_label": "Por determinar; sin bonificación de marea",
+      "classification": "provisional", "confidence_note": "Orientación inferida de Sant Sebastià y Barceloneta; falta confirmación específica.",
+      "type": "Playa de arena entre tramos urbanos; calidad del pico por verificar.", "season": "Probablemente otoño-invierno",
+      "best": ["Comprobar swell E–ESE con período de 6–9 s", "Viento W–NW flojo; contrastar en la playa", "Observar si el banco cercano al espigón forma pared"],
+      "worst": ["Mar sin energía", "Viento E–SE fuerte / mar desordenado", "Sombra o refracción del espigón que reduzca la ola al llegar"],
+      "hazards": "Espigones y corrientes junto a estructuras; confirmar sobre el terreno.",
+      "sources": ["https://www.surf-forecast.com/breaks/Playade-Sant-Sebastia", "https://www.surf-forecast.com/breaks/Barceloneta"]
+    },
+    {
+      "id": "barceloneta", "name": "Barceloneta", "lat": 41.3793, "lon": 2.1941,
+      "ideal_swell_deg": 112.5, "swell_tolerance_deg": 105, "ideal_offshore_deg": 292.5, "exposure_factor": 1.0,
+      "swell_label": "E–ESE (óptimo ESE en Surf-Forecast)", "wind_label": "W–WNW flojo; cierto abrigo al NE", "tide_label": "Todas las mareas; efecto local menor",
+      "classification": "documentado", "confidence_note": "Guías coinciden en oleaje E–ESE y viento de poniente; sin calibración de banco.",
+      "type": "Beach break de arena, con picos a ambos lados y bancos cambiantes.", "season": "Otoño-invierno",
+      "best": ["Swell E–ESE y período medio (orientativo: 6–9 s)", "Viento W–WNW flojo o calma", "Oleaje pequeño-medio para olas más manejables"],
+      "worst": ["Swell con poca energía o alejado del E", "E/SE onshore fuerte, con chop", "Temporal grande que produzca cierres en bancos someros"],
+      "hazards": "Aglomeración habitual cuando funciona, obstáculos, espigones y corrientes.",
+      "sources": ["https://www.surf-forecast.com/breaks/Barceloneta", "https://wewave.surf/es/spots/barceloneta"]
+    },
+    {
+      "id": "somorrostro", "name": "Somorrostro", "lat": 41.3860, "lon": 2.2010,
+      "ideal_swell_deg": 105, "swell_tolerance_deg": 125, "ideal_offshore_deg": 290, "exposure_factor": 1.0,
+      "swell_label": "E–ESE (aproximación local)", "wind_label": "W–NW ligero (hipótesis)", "tide_label": "Por determinar; sin bonificación de marea",
+      "classification": "provisional", "confidence_note": "La escuela local lo agrupa con Barceloneta; microorientación y fondos no calibrados.",
+      "type": "Beach break con bancos entre estructuras; sector cercano al Port Olímpic.", "season": "Probablemente otoño-invierno",
+      "best": ["Llevant / swell del E con cierta energía", "Viento W–NW flojo al amanecer", "Localizar el banco que esté funcionando ese día"],
+      "worst": ["Temporal E con viento de mar fuerte y desordenado", "Swell débil o sombra local de las estructuras", "Banco cerrado tras movimiento de arena"],
+      "hazards": "Espigones, puerto próximo y aglomeración en picos urbanos.",
+      "sources": ["https://bcnsurfschool.es/es/mar/donde-surfear-en-barcelona"]
+    },
+    {
+      "id": "nova-icaria", "name": "Nova Icària", "lat": 41.3908, "lon": 2.2075,
+      "ideal_swell_deg": 125, "swell_tolerance_deg": 130, "ideal_offshore_deg": 310, "exposure_factor": 1.0,
+      "swell_label": "E–SE (hipótesis; protección local variable)", "wind_label": "W–NW ligero (hipótesis)", "tide_label": "Por determinar; sin bonificación de marea",
+      "classification": "provisional", "confidence_note": "No se encontró guía fiable del pico; el abrigo de diques y la respuesta de bancos requieren observaciones.",
+      "type": "Playa urbana encajada entre diques, al este del Port Olímpic; microexposición por verificar.", "season": "Por confirmar",
+      "best": ["Swell E–SE con altura suficiente para superar el abrigo de estructuras", "Viento terrestre ligero", "Verificar visualmente si entra ola y dónde forma pico"],
+      "worst": ["Oleaje pequeño filtrado por estructuras", "Viento E/SE fuerte que desordene la entrada", "Modelo marino anuncia olas que no llegan a romper en el sector"],
+      "hazards": "Espigones cercanos; no extrapolar altura de ola en mar abierto a la orilla.",
+      "sources": ["https://ariasurf.com/es/place/fa1bf3b0-8c61-4503-9c56-96f76fb3970e", "https://www.puertos.es/servicios/oceanografia/faqs"]
+    },
+    {
+      "id": "bogatell", "name": "Bogatell", "lat": 41.3951, "lon": 2.2120,
+      "ideal_swell_deg": 112.5, "swell_tolerance_deg": 105, "ideal_offshore_deg": 315, "exposure_factor": 1.0,
+      "swell_label": "ESE–SE (mejor ESE en Surf-Forecast)", "wind_label": "NW flojo (noroeste)", "tide_label": "Todas las mareas; bancos determinantes",
+      "classification": "documentado", "confidence_note": "Direcciones respaldadas por guías; bancos de arena móviles tras los temporales.",
+      "type": "Beach break expuesto entre espigones; izquierdas y derechas.", "season": "Otoño-invierno",
+      "best": ["Swell ESE con período medio y algo de energía", "NW flojo o calma", "Buscar el mejor banco después de una llevantada"],
+      "worst": ["Sin oleaje o período demasiado corto", "Viento E–SE fuerte (onshore), superficie desordenada", "Banco que cierra con el tamaño o corrientes junto al dique"],
+      "hazards": "Obstáculos/espigones y bancos que se desplazan con el temporal.",
+      "sources": ["https://www.surf-forecast.com/breaks/Bogatell", "https://wewave.surf/es/spots/bogatell"]
+    },
+    {
+      "id": "mar-bella", "name": "Mar Bella", "lat": 41.3991, "lon": 2.2155,
+      "ideal_swell_deg": 135, "swell_tolerance_deg": 105, "ideal_offshore_deg": 315, "exposure_factor": 1.0,
+      "swell_label": "SE (sureste; orientación orientativa)", "wind_label": "NW flojo (noroeste)", "tide_label": "Todas las mareas según guía de Mar Bella",
+      "classification": "documentado", "confidence_note": "Guía específica de Mar Bella; no confundir con la vecina Nova Mar Bella.",
+      "type": "Beach break entre espigones; picos sobre bancos de arena móviles.", "season": "Otoño-invierno",
+      "best": ["Swell SE y viento NW offshore", "Tamaño medio y mar ordenado para izquierdas y derechas", "Localizar bancos de arena tras cada temporal"],
+      "worst": ["Mar del SE muy corto con viento onshore fuerte", "Oleaje alto que cierre rápidamente sobre los bancos", "Swell de dirección no alineada con el sector del espigón"],
+      "hazards": "Corrientes junto a diques, cierres en temporal y presencia de otros usuarios.",
+      "sources": ["https://wewave.surf/es/spots/mar-bella", "https://bcnsurfschool.es/es/mar/donde-surfear-en-barcelona"]
+    }
+  ]
+}
