@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071521">
+  <meta name="description" content="Radar de surf para las playas de Barcelona. Ranking por modelos meteorológicos y ventanas de olas en las próximas 72 horas.">
+  <title>Barcelona Surf Radar · Previsión y ranking</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
+  <link rel="apple-touch-icon" href="./assets/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="masthead">
+      <a class="brand" href="#inicio" aria-label="Barcelona Surf Radar, inicio"><span class="brand-symbol" aria-hidden="true">〰</span><span class="brand-lines"><b>BCN SURF</b><small>R A D A R</small></span></a>
+      <div class="header-right">
+        <span id="data-pill" class="data-pill pending"><span class="pulse-dot"></span>Cargando datos</span>
+        <a class="mini-btn" href="#fuentes" aria-label="Ver fuentes">Fuentes <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="intro" aria-labelledby="main-title">
+        <div class="intro-text">
+          <p class="eyebrow"><span class="tiny-line"></span> BARCELONA · MEDITERRÁNEO</p>
+          <h1 id="main-title">No te pierdas<br><em>la próxima ola.</em></h1>
+          <p class="intro-sub">7 playas, distintos modelos y una respuesta: <strong>dónde y cuándo entrar al agua.</strong></p>
+          <div class="update-line"><span aria-hidden="true">◷</span> <span id="last-update">Consultando último parte…</span><span class="sep">·</span> Actualización cada 6 h</div>
+        </div>
+        <div class="wave-art" aria-hidden="true"><div class="wave-orbit orbit1"></div><div class="wave-orbit orbit2"></div><div class="wave-orbit orbit3"></div><div class="wave-sun"></div><div class="wave-curve curve1"></div><div class="wave-curve curve2"></div><div class="wave-curve curve3"></div></div>
+      </section>
+
+      <div class="toolbar" id="ranking">
+        <div class="day-tabs" role="tablist" aria-label="Día del pronóstico">
+          <button class="day-tab active" data-day="0" role="tab" aria-selected="true">Hoy</button>
+          <button class="day-tab" data-day="1" role="tab" aria-selected="false">Mañana</button>
+          <button class="day-tab" data-day="2" role="tab" aria-selected="false">Pasado</button>
+        </div>
+        <label class="profile-control" for="profile">Nivel <select id="profile"><option value="principiante">Iniciación</option><option value="intermedio" selected>Intermedio</option><option value="avanzado">Avanzado</option></select></label>
+      </div>
+
+      <section id="overview" class="overview" aria-live="polite">
+        <div class="empty-state"><div class="empty-mark">〰</div><h2>Preparando el radar</h2><p>Cargando las previsiones meteorológicas y marinas.</p></div>
+      </section>
+
+      <section class="two-col" aria-label="Previsión por horas y explicación">
+        <div class="panel timeline-panel" id="timeline"><div class="section-head"><div><p class="eyebrow small">VENTANA DE 72 HORAS</p><h2>Evolución del surf</h2></div><span class="panel-tag">Puntuación /100</span></div><div id="forecast-chart" class="chart-wrapper loading-chart">El gráfico aparecerá después de cargar los pronósticos.</div><div id="hourly-strip" class="hourly-strip"></div></div>
+        <div class="panel insight-panel" id="detalle"><div class="section-head"><div><p class="eyebrow small">ANÁLISIS DEL SPOT</p><h2>Leer las condiciones</h2></div></div><div id="insight-content" class="insight-content"><p class="muted">Seleccioná una de las playas para ver el análisis, el nivel del mar y la comparación de modelos.</p></div></div>
+      </section>
+
+      <section class="all-beaches" id="playas" aria-labelledby="all-title"><div class="section-head list-head"><div><p class="eyebrow small">DE SANT SEBASTIÀ A MAR BELLA</p><h2 id="all-title">Todas las playas</h2></div><p>Elegí una para explorar su pronóstico.</p></div><div id="beach-list" class="beach-list"><div class="beach-placeholder">Cargando 7 playas…</div></div></section>
+
+
+      <section class="spot-profiles" id="perfiles" aria-labelledby="profiles-title">
+        <div class="section-head list-head"><div><p class="eyebrow small">FICHAS DE LOS SIETE SPOTS</p><h2 id="profiles-title">Cómo funciona cada playa</h2></div><p>Consultá su mejor swell, viento, peores condiciones y el grado de validación.</p></div>
+        <p class="profile-disclaimer">Los perfiles son una primera hipótesis reproducible: las cuatro guías específicas están documentadas y las otras tres requieren observaciones. Cambian los bancos de arena y el efecto local de los espigones.</p>
+        <div id="spot-profile-list" class="spot-profile-grid"><div class="beach-placeholder">Cargando fichas de playa…</div></div>
+      </section>
+
+      <section class="sources-panel" id="fuentes"><div><p class="eyebrow small">TRANSPARENCIA DE DATOS</p><h2>Los números importan.<br><span>Las fuentes también.</span></h2><p>El ranking calcula una puntuación orientativa combinando modelos de oleaje y viento. Nunca estima la altura exacta de la ola al romper ni reemplaza observar el mar. La Mar Bella y Barceloneta comparten mallas de pronóstico similares.</p><div id="source-summary" class="source-pills"></div></div><div class="source-actions"><a target="_blank" rel="noopener noreferrer" href="https://www.windguru.cz/501033">Abrir Windguru <span>↗</span></a><a target="_blank" rel="noopener noreferrer" href="https://www.windy.com/">Abrir Windy (AROME) <span>↗</span></a><a target="_blank" rel="noopener noreferrer" href="https://www.surf-forecast.com/breaks/Barceloneta">Ver Surf-Forecast <span>↗</span></a><a target="_blank" rel="noopener noreferrer" href="https://portus.puertos.es/">Mareas oficiales · Portus <span>↗</span></a></div></section>
+    </main>
+
+    <footer><span>BCN SURF RADAR <span class="footer-dot">●</span> HECHO PARA BUSCAR OLAS</span><span>Datos: Open-Meteo · CC BY 4.0. Análisis experimental. Revisá banderas, corrientes y normativa antes de surfear.</span></footer>
+  </div>
+</body>
+</html>
